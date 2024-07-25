@@ -67,7 +67,21 @@ public class CustomerServiceImpl implements CustomerService{
 
             return new ResponseEntity<>(new Response(true, HttpStatus.OK.value(), "Customer edited successfully", Collections.singletonList(savedCustomer)), HttpStatus.OK);
         }else {
-            return new ResponseEntity<>(new Response(false, HttpStatus.NOT_FOUND.value(), "Customer not foun"),HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new Response(false, HttpStatus.NOT_FOUND.value(), "Customer not found"),HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @Override
+    public ResponseEntity<Response> deleteCustomer(Long customerId) {
+        if (customerId.toString().isEmpty() || customerId == null){
+            return new ResponseEntity<>(new Response(false, HttpStatus.BAD_REQUEST.value(), "invalid customer id"), HttpStatus.BAD_REQUEST);
+        }
+        Optional<Customer> customerFromDB = customerRepository.findById(customerId);
+        if (customerFromDB.isPresent()){
+            customerRepository.deleteById(customerId);
+            return new ResponseEntity<>(new Response(true, HttpStatus.OK.value(), "customer deleted successfully"), HttpStatus.OK);
+        }else {
+            return new ResponseEntity<>(new Response(false, HttpStatus.BAD_REQUEST.value(), "Customer not found"), HttpStatus.BAD_REQUEST);
         }
     }
 }
