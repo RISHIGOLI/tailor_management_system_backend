@@ -8,6 +8,7 @@ public class TailorManagementSystemApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TailorManagementSystemApplication.class, args);
+		System.out.println("APPLICATION STARTED...");
 	}
 
 }
