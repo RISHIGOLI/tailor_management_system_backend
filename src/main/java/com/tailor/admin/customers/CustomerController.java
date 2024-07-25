@@ -29,4 +29,9 @@ public class CustomerController {
     public ResponseEntity<Response> getAllCustomers(){
         return this.customerService.getAllCustomers();
     }
+
+    @PutMapping("/editCustomer/{customerId}")
+    public ResponseEntity<Response> editCustomer(@PathVariable Long customerId, @RequestBody Customer customer){
+        return this.customerService.editCustomer(customerId,customer);
+    }
 }

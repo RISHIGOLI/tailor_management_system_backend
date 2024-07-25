@@ -9,4 +9,6 @@ public interface CustomerService {
     ResponseEntity<Response> addCustomer(Customer customer);
 
     ResponseEntity<Response> getAllCustomers();
+
+    ResponseEntity<Response> editCustomer(Long customerId, Customer customer);
 }
