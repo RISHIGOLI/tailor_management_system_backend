@@ -19,11 +19,11 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
     public ResponseEntity<Response> addCustomer(Customer customer) {
         if (customer == null){
-            return null;
+            return new ResponseEntity<>(new Response(false, HttpStatus.BAD_REQUEST.value(), "customer cannot be null"),HttpStatus.BAD_REQUEST);
         }
         Customer savedCustomer = customerRepository.save(customer);
-        if (savedCustomer != null){
-            return new ResponseEntity<>(new Response(false, HttpStatus.BAD_REQUEST.value(), "customer couldn't be added"), HttpStatus.BAD_REQUEST);
+        if (savedCustomer == null){
+            return new ResponseEntity<>(new Response(false, HttpStatus.INTERNAL_SERVER_ERROR.value(), "customer couldn't be added"), HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
         return new ResponseEntity<>(new Response(true, HttpStatus.CREATED.value(),"customer added successfully", Collections.singletonList(savedCustomer)), HttpStatus.CREATED);

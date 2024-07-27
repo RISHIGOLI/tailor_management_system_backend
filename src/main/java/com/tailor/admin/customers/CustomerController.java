@@ -35,7 +35,7 @@ public class CustomerController {
         return this.customerService.editCustomer(customerId,customer);
     }
 
-    @DeleteMapping("/deleteCustomer/{customerId}")
+    @PostMapping("/deleteCustomer/{customerId}")
     public ResponseEntity<Response> deleteCustomer(@PathVariable Long customerId){
         return this.customerService.deleteCustomer(customerId);
     }
