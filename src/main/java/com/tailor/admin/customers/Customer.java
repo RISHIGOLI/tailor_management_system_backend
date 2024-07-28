@@ -1,5 +1,6 @@
 package com.tailor.admin.customers;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.tailor.admin.measurements.measurements.Measurement;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -30,5 +31,6 @@ public class Customer {
     private String referredBy;
 
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Measurement> measurements;
 }

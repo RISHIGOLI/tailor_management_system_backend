@@ -1,5 +1,7 @@
 package com.tailor.admin.measurements.measurements;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.tailor.admin.customers.Customer;
 import com.tailor.admin.measurements.measurementTypes.MeasurementType;
 import com.tailor.admin.measurements.measurementValues.MeasurementValue;
@@ -22,6 +24,7 @@ public class Measurement {
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
+    @JsonBackReference
     private Customer customer;
 
     @ManyToOne
@@ -29,5 +32,6 @@ public class Measurement {
     private MeasurementType type;
 
     @OneToMany(mappedBy = "measurement", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<MeasurementValue> values;
 }

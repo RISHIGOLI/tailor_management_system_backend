@@ -1,4 +1,4 @@
-package com.tailor.admin.measurements;
+package com.tailor.admin.measurements.measurementFields;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.tailor.admin.measurements.measurementTypes.MeasurementType;

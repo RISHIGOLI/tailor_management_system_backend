@@ -1,5 +1,6 @@
 package com.tailor.admin.measurements.measurementValues;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.tailor.admin.measurements.measurements.Measurement;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,6 +19,7 @@ public class MeasurementValue {
 
     @ManyToOne
     @JoinColumn(name = "measurement_id", nullable = false)
+    @JsonBackReference
     private Measurement measurement;
 
     @Column(name = "field_name", nullable = false)
