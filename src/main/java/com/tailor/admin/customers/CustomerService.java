@@ -13,4 +13,6 @@ public interface CustomerService {
     ResponseEntity<Response> editCustomer(Long customerId, Customer customer);
 
     ResponseEntity<Response> deleteCustomer(Long customerId);
+
+    ResponseEntity<Response> getCustomerByCustomerName(String customerName);
 }

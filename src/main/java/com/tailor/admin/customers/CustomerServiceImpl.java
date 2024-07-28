@@ -84,4 +84,18 @@ public class CustomerServiceImpl implements CustomerService{
             return new ResponseEntity<>(new Response(false, HttpStatus.BAD_REQUEST.value(), "Customer not found"), HttpStatus.BAD_REQUEST);
         }
     }
+
+    @Override
+    public ResponseEntity<Response> getCustomerByCustomerName(String customerName) {
+        if (customerName.isEmpty() || customerName == null){
+            return new ResponseEntity<>(new Response(false, HttpStatus.BAD_REQUEST.value(), "customer name cannot be empty or null"),HttpStatus.BAD_REQUEST);
+        }
+
+        List<Customer> customerList = customerRepository.findByCustomerNameContaining(customerName);
+        if (customerList != null){
+            return new ResponseEntity<>(new Response(true, HttpStatus.OK.value(), "Query Successful", customerList),HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(new Response(false, HttpStatus.BAD_REQUEST.value(), "customer name not found"), HttpStatus.BAD_REQUEST);
+        }
+    }
 }
