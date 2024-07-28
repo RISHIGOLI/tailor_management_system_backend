@@ -1,7 +1,8 @@
 package com.tailor.admin.measurements.measurementTypes;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.tailor.admin.measurements.MeasurementField;
+//import com.tailor.admin.measurements.MeasurementField;
+import com.tailor.admin.measurements.measurementFields.MeasurementField;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

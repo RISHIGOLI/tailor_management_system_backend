@@ -7,6 +7,7 @@ import com.tailor.admin.measurements.dtos.MeasurementRequest;
 import com.tailor.admin.measurements.measurementTypes.MeasurementType;
 import com.tailor.admin.measurements.measurementTypes.MeasurementTypeRepository;
 import com.tailor.admin.measurements.measurementValues.MeasurementValue;
+import com.tailor.admin.measurements.measurementValues.MeasurementValueRepository;
 import com.tailor.admin.utils.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,6 +27,8 @@ public class MeasurementService {
     private CustomerRepository customerRepository;
     @Autowired
     private MeasurementTypeRepository measurementTypeRepository;
+    @Autowired
+    private MeasurementValueRepository measurementValueRepository;
 
     public ResponseEntity<Response> addMeasurement(MeasurementRequest measurementRequest) {
         System.out.println("customer id = "+ measurementRequest.getCustomerId()+ " type id = "+ measurementRequest.getTypeId());
@@ -55,6 +58,7 @@ public class MeasurementService {
         }
 
         Measurement savedMeasurement = measurementRepository.save(measurement);
+        measurementValueRepository.saveAll(measurementValues);
         return new ResponseEntity<>(new Response(true, HttpStatus.CREATED.value(), "measurement added successfully", Collections.singletonList(savedMeasurement)),HttpStatus.CREATED);
     }
 

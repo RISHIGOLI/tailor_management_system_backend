@@ -1,6 +1,6 @@
 package com.tailor.admin.measurements.measurementFields;
 
-import com.tailor.admin.measurements.MeasurementField;
+//import com.tailor.admin.measurements.MeasurementField;
 import com.tailor.admin.measurements.measurementTypes.MeasurementType;
 import com.tailor.admin.measurements.measurementTypes.MeasurementTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;

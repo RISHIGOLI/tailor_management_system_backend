@@ -1,6 +1,6 @@
 package com.tailor.admin.measurements.measurementFields;
 
-import com.tailor.admin.measurements.MeasurementField;
+//import com.tailor.admin.measurements.MeasurementField;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

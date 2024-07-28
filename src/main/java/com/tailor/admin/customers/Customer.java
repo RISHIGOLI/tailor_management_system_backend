@@ -30,7 +30,7 @@ public class Customer {
     private String customerMobileNo;
     private String referredBy;
 
-    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private List<Measurement> measurements;
+//    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+//    @JsonManagedReference
+//    private List<Measurement> measurements;
 }

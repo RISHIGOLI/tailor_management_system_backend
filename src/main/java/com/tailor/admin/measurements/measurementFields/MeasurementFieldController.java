@@ -1,6 +1,6 @@
 package com.tailor.admin.measurements.measurementFields;
 
-import com.tailor.admin.measurements.MeasurementField;
+//import com.tailor.admin.measurements.MeasurementField;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;

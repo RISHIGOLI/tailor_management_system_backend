@@ -24,7 +24,7 @@ public class Measurement {
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
-    @JsonBackReference
+//    @JsonBackReference
     private Customer customer;
 
     @ManyToOne
