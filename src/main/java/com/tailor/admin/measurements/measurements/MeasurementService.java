@@ -57,6 +57,8 @@ public class MeasurementService {
             measurementValues.add(measurementValue);
         }
 
+        measurement.setValues(measurementValues);
+
         Measurement savedMeasurement = measurementRepository.save(measurement);
         measurementValueRepository.saveAll(measurementValues);
         return new ResponseEntity<>(new Response(true, HttpStatus.CREATED.value(), "measurement added successfully", Collections.singletonList(savedMeasurement)),HttpStatus.CREATED);
